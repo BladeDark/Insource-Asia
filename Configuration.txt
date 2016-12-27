@@ -10,3 +10,4 @@ ${TransferName}    Travpax Automation Transfer
 ${ImagePath}      C:/Users/narongsak/Desktop/Test Picture/Image/main@2xx.png
 ${TransferCode}    Travpax Transfer 3
 ${SupplierName}    ARM2 TEST14
+
