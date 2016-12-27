@@ -1,0 +1,49 @@
+*** Settings ***
+Library           Collections
+Resource          Configuration.txt
+
+*** Variables ***
+@{Number}
+${ID}             ${EMPTY}
+
+*** Test Cases ***
+Go to Transfer Edit
+    Set Selenium Speed    0.25
+    Set Selenium Implicit Wait    10
+    Go to Transfer Edit page
+    Select From List By Value    xpath=.//*[@id='sample_editable_1_length']/label/select    50
+
+Check Sorting ID by ascending
+    ${Record}=    Get Value    xpath=.//*[@id='sample_editable_1_length']/label/select
+    Click Element    xpath=.//*[@id='sample_editable_1']/thead/tr/th[2]
+    ${SUM}=    Set Variable    0
+    Comment    Get All ID in the list
+    : FOR    ${INDEX}    IN RANGE    1    ${Record}+1
+    \    ${present}=    Run Keyword And Return Status    Element Should Be Visible    xpath=.//*[@id='sample_editable_1']/tbody/tr[${INDEX}]/td[2]
+    \    Exit For Loop If    '${present}' == 'False'
+    \    ${ID}=    Run Keyword If    ${present}    Get Text    xpath=.//*[@id='sample_editable_1']/tbody/tr[${INDEX}]/td[2]
+    \    ${ConvertID}=    Convert To Integer    ${ID}
+    \    Append To List    ${Number}    ${ConvertID}
+    \    ${SUM}=    Evaluate    ${SUM}+1
+    Log    Exit For loop
+    Comment    Check Sorting in the List
+    : FOR    ${INDEX}    IN RANGE    1    ${SUM}
+    \    ${status}=    Run Keyword And Return Status    Should Be True    @{Number}[0]<@{Number}[${INDEX}]
+    \    Exit For Loop If    '${status}' == 'False'
+    Log    Exit For loop
+    Comment    Check Test Exectuion Pass of Failed
+    Run Keyword If    '${status}' == 'True'    Pass Execution    Sorting is correct
+    Run Keyword If    '${status}' == 'False'    Fail
+
+*** Keywords ***
+Go to Transfer Edit page
+    open browser    ${URL}    Chrome
+    Maximize Browser Window
+    input text    id=txtUserName    ${Username}
+    input Password    id=txtPassword    ${Password}
+    Click Button    //button[@type='submit']
+    Set Selenium Implicit Wait    5
+    Click Link    link=Products
+    Wait Until Element Is Visible    link=Transfer
+    Click Link    link=Transfer
+    Wait Until Element Is Visible    id=sample_editable_1_new
