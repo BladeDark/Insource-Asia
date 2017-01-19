@@ -11,7 +11,7 @@ Go to Edit Page
 
 Go to Agreement tab and edit existing agreement
     Go to Agreement tab
-    Comment    Click Edit Transfer Agreement
+    Click Edit Transfer Agreement
 
 Clear Data
     Select From List By Index    id=ServiceChargeType    0
@@ -330,11 +330,11 @@ Untick Checkbox for Promo Fare
     Checkbox Should Not Be Selected    id=IsPromotion
 
 Tick Checkbox for Package Only
-    Click Element    xpath=.//label[@for='IsPackageType']/span[@class='check']
-    Checkbox Should Not Be Selected    id=IsPackageType
+    Click Element    xpath=.//label[@for='IsPackageType']/span[@class='box']
+    Checkbox Should Be Selected    id=IsPackageType
 
 Untick Checkbox for Package Only
-    Click Element    xpath=//*[@id='divFormAddEditControls']/div[1]/div[16]/div/div/div[2]/label/span[2]
+    Click Element    xpath=.//label[@for='IsPackageType']/span[@class='check']
     Checkbox Should Not Be Selected    id=IsPackageType
 
 Tick Checkbox for SIC Basic
@@ -394,8 +394,8 @@ Select Supplier for Supplier
     Wait Until Element Is Visible    id=txtSupplierName
     Input Text    id=txtSupplierName    ${SupplierName}
     Click Button    id=btnSearchSupplier
-    Wait Until Element Is Visible    id=1
-    Click Button    id=1
+    Wait Until Element Is Visible    xpath=//tr[@class='odd']/td[1]/input
+    Click Button    xpath=//tr[@class='odd']/td[1]/input
     Click Button    id=btnSaveAgreement
     Scroll Page To Location    0    -2000
     Element Should Not Be Visible    id=txtSupplierCode-error    This field is required.

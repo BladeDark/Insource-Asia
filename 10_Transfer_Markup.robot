@@ -120,8 +120,8 @@ Select Date From
 
 Select Date To
     Click Element    id=txt_validtomrkp
-    Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']/div[@class='datepicker-days']/table/tbody/tr[6]/td[@class='day'][text()='31']
-    Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']/div[@class='datepicker-days']/table/tbody/tr[6]/td[@class='day'][text()='31']
+    Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']/div[@class='datepicker-days']/table/tbody/tr[1]/td[@class='day'][text()='2']
+    Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']/div[@class='datepicker-days']/table/tbody/tr[1]/td[@class='day'][text()='2']
 
 Fill English letter with not allow function
     [Arguments]    ${ObjectID}

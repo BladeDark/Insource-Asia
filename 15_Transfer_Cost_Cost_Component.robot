@@ -19,7 +19,6 @@ Add Period
     Select Valid From
     Select Valid To
     Click Add Period
-    Click Edit Period
 
 Transportation_Person
     Click Add new + for cost

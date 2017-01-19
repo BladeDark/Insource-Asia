@@ -19,7 +19,7 @@ Add Period
     Select Valid From
     Select Valid To
     Click Add Period
-    Click Edit Period
+    Scroll Page To Location    0    1000
     Click Add new + for cost
 
 Vehicle
@@ -124,8 +124,8 @@ Select Valid From
 
 Select Valid To
     Click Element    id=datePickerValidTo
-    Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-bottom']/div[@class='datepicker-days']/table/tbody/tr[6]/td[@class='day'][text()='31']
-    Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-bottom']/div[@class='datepicker-days']/table/tbody/tr[6]/td[@class='day'][text()='31']
+    Wait Until Element Is Visible    xpath=//td[@class='day'][text()='31']
+    Click Element    xpath=//td[@class='day'][text()='31']
 
 Click Add Period
     Click Button    id=btnSaveCost

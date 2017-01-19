@@ -187,7 +187,7 @@ Select Supplier for Supplier
     Wait Until Element Is Visible    id=txtSupplierName
     Input Text    id=txtSupplierName    ${SupplierName}
     Click Button    id=btnSearchSupplier
-    Click Button    id=1
+    Click Button    xpath=//tr[@class='odd']/td[1]/input
     Click Button    id=btnSaveAgreement
     Scroll Page To Location    0    -2000
     Element Should Not Be Visible    id=txtSupplierCode-error    This field is required.
@@ -233,13 +233,13 @@ Select THB for Currency field
 Select any agent for agent field
     Click Button    id=btnSearchAgent
     Wait Until Element Is Visible    id=txtAgentName
-    Input Text    id=txtAgentName    Insource Test
+    Input Text    id=txtAgentName    ${SpecificAgent}
     Click Button    id=btnAgentSearch
-    Click Element    id=76
+    Click Element    xpath=//tr[@class='odd']/td[1]/input
     Click Button    id=btnSaveAgents
     Click Button    id=btnSaveAgreement
     Scroll Page To Location    0    -2000
-    Element Should Be Visible    xpath=//*[@id='76']/span
+    Element Should Be Visible    xpath=//span[contains(.,'Insource Test')]
 
 Check Default value for Min Child Age 1
     ${Child_One}=    Get Value    id=MinChild1Age

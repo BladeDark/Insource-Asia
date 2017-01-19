@@ -206,8 +206,8 @@ Select Date From
 
 Select Date To
     Click Element    xpath=.//*[@id='travelDeparture']/input[2]
-    Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']/div[@class='datepicker-days']/table/tbody/tr[6]/td[@class='day'][text()='31']
-    Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']/div[@class='datepicker-days']/table/tbody/tr[6]/td[@class='day'][text()='31']
+    Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']/div[@class='datepicker-days']/table/tbody/tr[5]/td[@class='day'][text()='31']
+    Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']/div[@class='datepicker-days']/table/tbody/tr[5]/td[@class='day'][text()='31']
 
 Non Refundable
     Click Element    xpath=.//label[@for='cbNonRefundable']/span[@class='box']

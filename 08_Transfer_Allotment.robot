@@ -182,13 +182,13 @@ Select Valid From
     Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-bottom']//div[@class='datepicker-months']//table[@class='table-condensed'][1]//thead//tr/th[@class='next']
     Wait Until Element Is Visible    xpath=//span[@class='month'][text()='Jan']
     Click Element    xpath=//span[@class='month'][text()='Jan']
-    Wait Until Element Is Visible    xpath=.//td[@class='day'][text()='22']
-    Click Element    xpath=.//td[@class='day'][text()='22']
+    Wait Until Element Is Visible    xpath=.//td[@class='day'][text()='1']
+    Click Element    xpath=.//td[@class='day'][text()='1']
 
 Select Valid To
     Click Element    id=txt_validToallot
-    Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-bottom']/div[@class='datepicker-days']/table/tbody/tr[6]/td[@class='day'][text()='31']
-    Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-bottom']/div[@class='datepicker-days']/table/tbody/tr[6]/td[@class='day'][text()='31']
+    Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-bottom']/div[@class='datepicker-days']/table/tbody/tr[1]/td[@class='day'][text()='2']
+    Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-bottom']/div[@class='datepicker-days']/table/tbody/tr[1]/td[@class='day'][text()='2']
 
 Add New Allotment
     Click Button    id=btnadd

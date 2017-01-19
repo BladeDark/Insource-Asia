@@ -51,33 +51,10 @@ CityZone
 Charge Basis
     Check Default Charge Basis
 
-Adult
-    Select Checkbox function    id=chkbxAdult    id=txtbxAdult
-    Fill English letter with not allow function    id=txtbxAdult
-    Fill Special character with not allow function    id=txtbxAdult
-    Fill Number with allow and have ObjError function    100    id=txtbxAdult    id=errortxtAdult
-    Unselect Checkbox function    id=chkbxAdult    id=txtbxAdult
-
-Child1
-    Select Checkbox function    id=chkbxChild1    id=txtbxChild1
-    Fill English letter with not allow function    id=txtbxChild1
-    Fill Special character with not allow function    id=txtbxChild1
-    Fill Number with allow and have ObjError function    200    id=txtbxChild1    id=errortxtChild1
-    Unselect Checkbox function    id=chkbxChild1    id=txtbxChild1
-
-Child2
-    Select Checkbox function    id=chkbxChild2    id=txtbxChild2
-    Fill English letter with not allow function    id=txtbxChild2
-    Fill Special character with not allow function    id=txtbxChild2
-    Fill Number with allow and have ObjError function    200    id=txtbxChild2    id=errortxtChild2
-    Unselect Checkbox function    id=chkbxChild2    id=txtbxChild2
-
-Infant
-    Select Checkbox function    id=chkbxInfant    id=txtbxInfant
-    Fill English letter with not allow function    id=txtbxInfant
-    Fill Special character with not allow function    id=txtbxInfant
-    Fill Number with allow and have ObjError function    200    id=txtbxInfant    id=errortxtInfant
-    Unselect Checkbox function    id=chkbxInfant    id=txtbxInfant
+Cost
+    Fill English letter with not allow function    id=tripRate
+    Fill Special character with not allow function    id=tripRate
+    Fill Number with allow and have no ObjError function    100    id=tripRate
 
 Back to Surcharge List
     Scroll Page To Location    0    -1000
@@ -91,14 +68,7 @@ Add Surcharge with Extra Hours
     Select any value for DLL function    DropOff    id=ddlCategory
     Select any value for DLL function    Extra Hours    id=ddlSurchargeType
     Check Location Type
-    Select Checkbox function    id=chkbxAdult    id=txtbxAdult
-    Fill Number with allow and have ObjError function    10    id=txtbxAdult    id=errortxtAdult
-    Select Checkbox function    id=chkbxChild1    id=txtbxChild1
-    Fill Number with allow and have ObjError function    110    id=txtbxChild1    id=errortxtChild1
-    Select Checkbox function    id=chkbxChild2    id=txtbxChild2
-    Fill Number with allow and have ObjError function    210    id=txtbxChild2    id=errortxtChild2
-    Select Checkbox function    id=chkbxInfant    id=txtbxInfant
-    Fill Number with allow and have ObjError function    310    id=txtbxInfant    id=errortxtInfant
+    Fill Number with allow and have ObjError function    10    id=tripRate    id=errortxtTriprate
     Click Button    id=btnSaveSurcharge
     Wait Until Element Contains    css=div.toast-message    Data successfully saved
     Wait Until Element Is Visible    id=btnAddNewSurcharge
@@ -110,14 +80,7 @@ Add Surcharge with Luggage
     Select any value for DLL function    DropOff    id=ddlCategory
     Select any value for DLL function    Luggage    id=ddlSurchargeType
     Check Location Type
-    Select Checkbox function    id=chkbxAdult    id=txtbxAdult
-    Fill Number with allow and have ObjError function    20    id=txtbxAdult    id=errortxtAdult
-    Select Checkbox function    id=chkbxChild1    id=txtbxChild1
-    Fill Number with allow and have ObjError function    120    id=txtbxChild1    id=errortxtChild1
-    Select Checkbox function    id=chkbxChild2    id=txtbxChild2
-    Fill Number with allow and have ObjError function    220    id=txtbxChild2    id=errortxtChild2
-    Select Checkbox function    id=chkbxInfant    id=txtbxInfant
-    Fill Number with allow and have ObjError function    320    id=txtbxInfant    id=errortxtInfant
+    Fill Number with allow and have ObjError function    20    id=tripRate    id=errortxtTriprate
     Click Button    id=btnSaveSurcharge
     Wait Until Element Contains    css=div.toast-message    Data successfully saved
     Wait Until Element Is Visible    id=btnAddNewSurcharge
@@ -129,14 +92,7 @@ Add Surcharge with Peak Period
     Select any value for DLL function    DropOff    id=ddlCategory
     Select any value for DLL function    Peak Period    id=ddlSurchargeType
     Check Location Type
-    Select Checkbox function    id=chkbxAdult    id=txtbxAdult
-    Fill Number with allow and have ObjError function    30    id=txtbxAdult    id=errortxtAdult
-    Select Checkbox function    id=chkbxChild1    id=txtbxChild1
-    Fill Number with allow and have ObjError function    130    id=txtbxChild1    id=errortxtChild1
-    Select Checkbox function    id=chkbxChild2    id=txtbxChild2
-    Fill Number with allow and have ObjError function    230    id=txtbxChild2    id=errortxtChild2
-    Select Checkbox function    id=chkbxInfant    id=txtbxInfant
-    Fill Number with allow and have ObjError function    330    id=txtbxInfant    id=errortxtInfant
+    Fill Number with allow and have ObjError function    30    id=tripRate    id=errortxtTriprate
     Click Button    id=btnSaveSurcharge
     Wait Until Element Contains    css=div.toast-message    Data successfully saved
     Wait Until Element Is Visible    id=btnAddNewSurcharge
@@ -153,14 +109,7 @@ Add Surcharge with Location
     Select any value for DLL function    Bangkok    id=ddlcityselect
     Sleep    2
     Select Location list for Location
-    Select Checkbox function    id=chkbxAdult    id=txtbxAdult
-    Fill Number with allow and have ObjError function    40    id=txtbxAdult    id=errortxtAdult
-    Select Checkbox function    id=chkbxChild1    id=txtbxChild1
-    Fill Number with allow and have ObjError function    140    id=txtbxChild1    id=errortxtChild1
-    Select Checkbox function    id=chkbxChild2    id=txtbxChild2
-    Fill Number with allow and have ObjError function    240    id=txtbxChild2    id=errortxtChild2
-    Select Checkbox function    id=chkbxInfant    id=txtbxInfant
-    Fill Number with allow and have ObjError function    340    id=txtbxInfant    id=errortxtInfant
+    Fill Number with allow and have ObjError function    40    id=tripRate    id=errortxtTriprate
     Click Button    id=btnSaveSurcharge
     Wait Until Element Contains    css=div.toast-message    Data successfully saved
     Wait Until Element Is Visible    id=btnAddNewSurcharge
@@ -199,32 +148,13 @@ Edit Surcharge with no location
     Element Should Be Disabled    id=ddlcityselect
     Element Should Be Disabled    id=ddlCityZone
     Element Should Be Disabled    id=chargebasis
-    Element Should Be Enabled    id=chkbxAdult
-    Element Should Be Enabled    id=chkbxChild1
-    Element Should Be Enabled    id=chkbxChild2
-    Element Should Be Enabled    id=chkbxInfant
-    Element Should Be Enabled    id=txtbxAdult
-    Element Should Be Enabled    id=txtbxChild1
-    Element Should Be Enabled    id=txtbxChild2
-    Element Should Be Enabled    id=txtbxInfant
+    Element Should Be Enabled    id=tripRate
     Element Should Be Disabled    id=ddlCurrency
     Element Should Be Enabled    id=IsActive
-    Clear Element Text    id=txtbxAdult
-    Fill English letter with not allow function    id=txtbxAdult
-    Fill Special character with not allow function    id=txtbxAdult
-    Fill Number with allow and have ObjError function    100    id=txtbxAdult    id=errortxtAdult
-    Clear Element Text    id=txtbxChild1
-    Fill English letter with not allow function    id=txtbxChild1
-    Fill Special character with not allow function    id=txtbxChild1
-    Fill Number with allow and have ObjError function    200    id=txtbxChild1    id=errortxtChild1
-    Clear Element Text    id=txtbxChild2
-    Fill English letter with not allow function    id=txtbxChild2
-    Fill Special character with not allow function    id=txtbxChild2
-    Fill Number with allow and have ObjError function    200    id=txtbxChild2    id=errortxtChild2
-    Clear Element Text    id=txtbxInfant
-    Fill English letter with not allow function    id=txtbxInfant
-    Fill Special character with not allow function    id=txtbxInfant
-    Fill Number with allow and have ObjError function    200    id=txtbxInfant    id=errortxtInfant
+    Clear Element Text    id=tripRate
+    Fill English letter with not allow function    id=tripRate
+    Fill Special character with not allow function    id=tripRate
+    Fill Number with allow and have ObjError function    100    id=tripRate    id=errortxtTriprate
     Click Button    id=btnSaveSurcharge
     Wait Until Element Contains    css=div.toast-message    Data successfully saved
     Wait Until Element Is Visible    id=btnAddNewSurcharge
@@ -241,32 +171,13 @@ Edit Surhcarge with Location
     Element Should Be Enabled    id=ddlcityselect
     Element Should Be Disabled    id=ddlCityZone
     Element Should Be Disabled    id=chargebasis
-    Element Should Be Enabled    id=chkbxAdult
-    Element Should Be Enabled    id=chkbxChild1
-    Element Should Be Enabled    id=chkbxChild2
-    Element Should Be Enabled    id=chkbxInfant
-    Element Should Be Enabled    id=txtbxAdult
-    Element Should Be Enabled    id=txtbxChild1
-    Element Should Be Enabled    id=txtbxChild2
-    Element Should Be Enabled    id=txtbxInfant
+    Element Should Be Enabled    id=tripRate
     Element Should Be Disabled    id=ddlCurrency
     Element Should Be Enabled    id=IsActive
-    Clear Element Text    id=txtbxAdult
-    Fill English letter with not allow function    id=txtbxAdult
-    Fill Special character with not allow function    id=txtbxAdult
-    Fill Number with allow and have ObjError function    100    id=txtbxAdult    id=errortxtAdult
-    Clear Element Text    id=txtbxChild1
-    Fill English letter with not allow function    id=txtbxChild1
-    Fill Special character with not allow function    id=txtbxChild1
-    Fill Number with allow and have ObjError function    200    id=txtbxChild1    id=errortxtChild1
-    Clear Element Text    id=txtbxChild2
-    Fill English letter with not allow function    id=txtbxChild2
-    Fill Special character with not allow function    id=txtbxChild2
-    Fill Number with allow and have ObjError function    200    id=txtbxChild2    id=errortxtChild2
-    Clear Element Text    id=txtbxInfant
-    Fill English letter with not allow function    id=txtbxInfant
-    Fill Special character with not allow function    id=txtbxInfant
-    Fill Number with allow and have ObjError function    200    id=txtbxInfant    id=errortxtInfant
+    Clear Element Text    id=tripRate
+    Fill English letter with not allow function    id=tripRate
+    Fill Special character with not allow function    id=tripRate
+    Fill Number with allow and have ObjError function    100    id=tripRate    id=errortxtTriprate
     Click Button    id=btnSaveSurcharge
     Wait Until Element Contains    css=div.toast-message    Data successfully saved
     Wait Until Element Is Visible    id=btnAddNewSurcharge
@@ -279,14 +190,11 @@ Edit Surcharge with Not In Service
     Element Should Be Disabled    id=ddlCategory
     Element Should Be Disabled    id=ddlSurchargeType
     Element Should Be Disabled    id=ddlLocationType
-    Element Should Be Enabled    id=ddlTransferCountry
-    Element Should Be Enabled    id=ddlcityselect
+    Element Should Be Disabled    id=ddlTransferCountry
+    Element Should Be Disabled    id=ddlcityselect
     Element Should Be Enabled    id=ddlCityZone
     Element Should Be Disabled    id=chargebasis
-    Element Should Not Be Visible    id=chkbxAdult
-    Element Should Not Be Visible    id=chkbxChild1
-    Element Should Not Be Visible    id=chkbxChild2
-    Element Should Not Be Visible    id=chkbxInfant
+    Element Should Be Enabled    id=tripRate
     Element Should Not Be Visible    id=txtbxAdult
     Element Should Not Be Visible    id=txtbxChild1
     Element Should Not Be Visible    id=txtbxChild2
@@ -357,8 +265,6 @@ Select Date From
     Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']//div[@class='datepicker-days']//table//thead//tr//th[@class='datepicker-switch']
     Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']//div[@class='datepicker-months']//table[@class='table-condensed'][1]//thead//tr/th[@class='next']
     Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']//div[@class='datepicker-months']//table[@class='table-condensed'][1]//thead//tr/th[@class='next']
-    Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']//div[@class='datepicker-months']//table[@class='table-condensed'][1]//thead//tr/th[@class='next']
-    Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']//div[@class='datepicker-months']//table[@class='table-condensed'][1]//thead//tr/th[@class='next']
     Wait Until Element Is Visible    xpath=//span[@class='month'][text()='Jan']
     Click Element    xpath=//span[@class='month'][text()='Jan']
     Wait Until Element Is Visible    xpath=.//td[@class='day'][text()='1']
@@ -380,7 +286,7 @@ Select any value for DLL function
 
 Check Default Charge Basis
     ${ChargeBasis}=    Get Value    id=chargebasis
-    Should Be Equal    ${ChargeBasis}    Per Person
+    Should Be Equal    ${ChargeBasis}    Per Vehicle
 
 Fill English letter with not allow function
     [Arguments]    ${ObjectID}

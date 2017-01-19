@@ -19,7 +19,6 @@ Add Period
     Select Valid From
     Select Valid To
     Click Add Period
-    Click Edit Period
     Click Add new + for cost
 
 Pax Range
@@ -146,8 +145,8 @@ Select Valid From
 
 Select Valid To
     Click Element    id=datePickerValidTo
-    Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-bottom']/div[@class='datepicker-days']/table/tbody/tr[6]/td[@class='day'][text()='31']
-    Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-bottom']/div[@class='datepicker-days']/table/tbody/tr[6]/td[@class='day'][text()='31']
+    Wait Until Element Is Visible    xpath=//td[@class='day'][text()='31']
+    Click Element    xpath=//td[@class='day'][text()='31']
 
 Click Add Period
     Click Button    id=btnSaveCost
@@ -206,9 +205,3 @@ Unselect Checkbox function
     Click Element    ${chbID}
     Checkbox Should Not Be Selected    ${chbID}
     Element Should Be Disabled    ${txtID}
-
-Click Edit Period
-    Wait Until Element Is Visible    xpath=//*[@id='btnEditCost_undefined'][1]
-    Click Element    xpath=//*[@id='btnEditCost_undefined'][1]
-    Wait Until Element Is Visible    id=btnAddNewCostPerPax
-    Scroll Page To Location    0    1000

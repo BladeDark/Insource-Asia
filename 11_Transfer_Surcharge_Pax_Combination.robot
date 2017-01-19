@@ -13,7 +13,7 @@ Go to Agreement and Click Surcharge
     Go to Agreement tab
     Edit Agreement function    1
     Go to Surcharge tab
-    Comment    Click Add new +
+    Click Add new +
 
 ValidFrom
     Select Date From
@@ -279,8 +279,8 @@ Edit Surcharge with Not In Service
     Element Should Be Disabled    id=ddlCategory
     Element Should Be Disabled    id=ddlSurchargeType
     Element Should Be Disabled    id=ddlLocationType
-    Element Should Be Enabled    id=ddlTransferCountry
-    Element Should Be Enabled    id=ddlcityselect
+    Element Should Be Disabled    id=ddlTransferCountry
+    Element Should Be Disabled    id=ddlcityselect
     Element Should Be Enabled    id=ddlCityZone
     Element Should Be Disabled    id=chargebasis
     Element Should Not Be Visible    id=chkbxAdult
@@ -355,8 +355,6 @@ Select Date From
     Click Element    id=validFrom
     Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']//div[@class='datepicker-days']//table//thead//tr//th[@class='datepicker-switch']
     Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']//div[@class='datepicker-days']//table//thead//tr//th[@class='datepicker-switch']
-    Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']//div[@class='datepicker-months']//table[@class='table-condensed'][1]//thead//tr/th[@class='next']
-    Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']//div[@class='datepicker-months']//table[@class='table-condensed'][1]//thead//tr/th[@class='next']
     Wait Until Element Is Visible    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']//div[@class='datepicker-months']//table[@class='table-condensed'][1]//thead//tr/th[@class='next']
     Click Element    xpath=//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']//div[@class='datepicker-months']//table[@class='table-condensed'][1]//thead//tr/th[@class='next']
     Wait Until Element Is Visible    xpath=//span[@class='month'][text()='Jan']
