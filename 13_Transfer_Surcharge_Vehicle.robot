@@ -221,7 +221,7 @@ Scroll Page To Location
     Execute JavaScript    window.scrollTo(${x_location},${y_location})
 
 Go to Transfer Edit page
-    open browser    ${URL}    Chrome
+    open browser    ${URL}    ${Browser}
     Maximize Browser Window
     input text    id=txtUserName    ${Username}
     input Password    id=txtPassword    ${Password}

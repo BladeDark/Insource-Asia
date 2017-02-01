@@ -149,7 +149,7 @@ Close Browser
 
 *** Keywords ***
 Go to Transfer Edit page
-    open browser    ${URL}    Chrome
+    open browser    ${URL}    ${Browser}
     Maximize Browser Window
     input text    id=txtUserName    ${Username}
     input Password    id=txtPassword    ${Password}
@@ -333,11 +333,11 @@ Fill More than Max child Age 2
 
 Check Default value for Operation Hours From
     ${OperationHourFrom}=    Get Value    name=OperationHourFrom
-    Should Be Equal    ${OperationHourFrom}    8:00
+    Should Be Equal    ${OperationHourFrom}    0:00
 
 Check Default value for Operation Hours To
     ${OperationHourTo}=    Get Value    name=OperationHourTo
-    Should Be Equal    ${OperationHourTo}    16:00
+    Should Be Equal    ${OperationHourTo}    0:00
 
 Check Default value for Not Sell Out of Operating Hour
     Checkbox Should Not Be Selected    id=IsNotSellOutOfOperatingHour

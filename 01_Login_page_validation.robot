@@ -30,7 +30,8 @@ Close Browser
 
 *** Keywords ***
 Given URL is opend
-    open browser    ${URL}    Chrome
+    Comment    Start Virtual Display    1920    1080
+    open browser    ${URL}    ${Browser}
     Maximize Browser Window
 
 Fill English letter for username field

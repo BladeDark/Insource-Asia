@@ -90,7 +90,7 @@ Scroll Page To Location
     Execute JavaScript    window.scrollTo(${x_location},${y_location})
 
 Go to Transfer Edit page
-    open browser    ${URL}    Chrome
+    open browser    ${URL}    ${Browser}
     Maximize Browser Window
     input text    id=txtUserName    ${Username}
     input Password    id=txtPassword    ${Password}
@@ -230,7 +230,7 @@ Delete Allotment
     Click Element    css=.glyphicon.glyphicon-trash
     Wait Until Element Is Visible    css=.btn.btn-primary
     Click Element    css=.btn.btn-primary
-    Wait Until Element Contains    css=div.toast-message    Data saved successfully.
+    Wait Until Element Contains    css=div.toast-message    Data successfully deleted.
 
 Check Cost Type function
     [Arguments]    ${Select}    ${Unselect}

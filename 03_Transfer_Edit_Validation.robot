@@ -115,7 +115,7 @@ Check Value for another language
     Wait Until Element Is Visible    id=h3Empty
     Sleep    1
     Click Element    id=ainfo
-    Select From List By Label    ddlLangCode    Bahasa Indonesia
+    Select From List By Label    id=ddlLangCode    Bahasa Indonesia
     Check Short Description
     Check Full Description
     Check Remark Internal
@@ -126,7 +126,7 @@ Close Browser
 
 *** Keywords ***
 Go to Transfer Edit page
-    open browser    ${URL}    Chrome
+    open browser    ${URL}    ${Browser}
     Maximize Browser Window
     input text    id=txtUserName    ${Username}
     input Password    id=txtPassword    ${Password}

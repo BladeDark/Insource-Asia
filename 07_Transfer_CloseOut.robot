@@ -47,14 +47,14 @@ Delete Close out
     Click Element    xpath=//*[@id='aDeleteCloseOut1']/span/i
     Wait Until Element Is Visible    css=button.btn.btn-primary
     Click Element    css=button.btn.btn-primary
-    Wait Until Element Contains    css=div.toast-message    Data successfully deleted
+    Wait Until Element Contains    css=div.toast-message    Data successfully deleted.
 
 Close Browser
     Close Browser
 
 *** Keywords ***
 Go to Transfer Edit page
-    open browser    ${URL}    Chrome
+    open browser    ${URL}    ${Browser}
     Maximize Browser Window
     input text    id=txtUserName    ${Username}
     input Password    id=txtPassword    ${Password}

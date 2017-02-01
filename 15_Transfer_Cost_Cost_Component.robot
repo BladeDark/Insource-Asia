@@ -132,7 +132,7 @@ Guide_Trip
     Supplier
     Click Save Button
 
-Conducto_Person
+Conductor_Person
     Click Add new + for cost
     Component Type    Conductor
     Wait Until Element Is Visible    xpath=.//label[@for='CostType-0']/span[@class='check']
@@ -223,7 +223,7 @@ Scroll Page To Location
     Execute JavaScript    window.scrollTo(${x_location},${y_location})
 
 Go to Transfer Edit page
-    open browser    ${URL}    Chrome
+    open browser    ${URL}    ${Browser}
     Maximize Browser Window
     input text    id=txtUserName    ${Username}
     input Password    id=txtPassword    ${Password}
