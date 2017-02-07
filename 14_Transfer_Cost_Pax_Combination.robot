@@ -9,7 +9,7 @@ Go to Edit Page
     Set Selenium Implicit Wait    10
     Go to Transfer Edit page
 
-Go to Agreement and Click Surcharge
+Go to Agreement and Click Cost
     Go to Agreement tab
     Edit Agreement function    1
     Go to Cost tab
@@ -22,8 +22,8 @@ Add Period
     Click Add new + for cost
 
 Pax Range
-    Empty value for DDL with error msg    id=ddlpaxCombination-error
-    Select by index with no error Msg    id=ddlpaxCombination    id=ddlpaxCombination-error
+    Empty value for DDL with error msg    id=ddlpaxxCombination-error
+    Select by index with no error Msg    id=ddlpaxxCombination    id=ddlpaxxCombination-error
 
 Adult
     Checkbox by default    id=chkAdult
@@ -153,8 +153,12 @@ Click Add Period
     Wait Until Element Contains    css=div.toast-message    Data saved successfully.
 
 Click Add new + for cost
+    Wait Until Element Is Visible    id=btnEditCost_undefined
+    Click Element    id=btnEditCost_undefined
+    Scroll Page To Location    1    1000
+    Wait Until Element Is Visible    id=btnAddNewCostPerPax
     Click Element    id=btnAddNewCostPerPax
-    Wait Until Element Is Visible    id=ddlpaxCombination
+    Wait Until Element Is Visible    id=ddlpaxxCombination
 
 Empty value for DDL with error msg
     [Arguments]    ${ObjErrMsg}

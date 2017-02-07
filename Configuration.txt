@@ -5,12 +5,12 @@ Library           XvfbRobot
 Library           Collections
 
 *** Variables ***
-${URL}            http://119.81.52.162/travpax_dev/travpax_dev/
+${URL}            http://10.88.88.171:51/BackendHK1
 ${Password}       Perftest@1234
 ${Username}       Perftest_1
 ${TransferName}    Travpax Automation Transfer
 ${ImagePath}      C:/Users/narongsak/Desktop/Test Picture/Image/main@2xx.png
-${TransferCode}    Travpax Transfer 1
+${TransferCode}    Travpax Transfer 3
 ${SupplierName}    Insource Asia
 ${SpecificAgent}    Insource Test
 ${Browser}        chrome
