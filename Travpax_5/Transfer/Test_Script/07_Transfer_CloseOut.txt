@@ -1,0 +1,49 @@
+*** Settings ***
+Documentation     I want to validation field in Close out page
+Suite Setup       Run Keywords    Abstract Page.Begin_Web_Test    Login Page.Login_successfully    Home Page.Click_Products_Link    Home Page.Click_Transfer_Link    Transfer List Page.search_transfer_and_edit    Transfer Menu.click_CloseOut
+...               Transfer CloseOut List.click_AddNew_btn
+Suite Teardown    Close Browser
+Resource          ../Page Objects/Abstract Page.robot
+Resource          ../Page Objects/Home Page.robot
+Resource          ../Page Objects/Login Page.robot
+Resource          ../Page Objects/Transfer Adding Page.robot
+Resource          ../Page Objects/Transfer List Page.robot
+Resource          ../Resource/Method.robot
+Resource          ../Resource/Variable.robot
+Resource          ../Page Objects/Transfer Agreement List.robot
+Resource          ../Page Objects/Transfer Menu.robot
+Resource          ../Page Objects/Transfer Agreement Page.robot
+Resource          ../Page Objects/Transfer CloseOut List.robot
+Resource          ../Page Objects/Transfer CloseOut Adding Page.robot
+
+*** Test Cases ***
+Cancel button
+    Transfer CloseOut Adding Page.Click_Cancel
+    Transfer CloseOut List.click_AddNew_btn
+
+Back to Close out List
+    Transfer CloseOut Adding Page.click_Back_To_CloseOut_List
+    Transfer CloseOut List.click_AddNew_btn
+
+Add Close out
+    Transfer CloseOut Adding Page.select_Supplier
+    Transfer CloseOut Adding Page.select_Valid_From
+    Transfer CloseOut Adding Page.select_Valid_To
+    Transfer CloseOut Adding Page.click_AllDay_to_be_Inactive
+    Transfer CloseOut Adding Page.click_AllDay_to_be_Active
+    Transfer CloseOut Adding Page.click_Save_btn
+    Wait Until Element Is Visible    xpath=.//div[text()='Data saved successfully.']
+
+Not allow to add over lap Close Out
+    Transfer CloseOut List.click_AddNew_btn
+    Transfer CloseOut Adding Page.select_Supplier
+    Transfer CloseOut Adding Page.select_Valid_From
+    Transfer CloseOut Adding Page.select_Valid_To
+    Transfer CloseOut Adding Page.click_AllDay_to_be_Inactive
+    Transfer CloseOut Adding Page.click_AllDay_to_be_Active
+    Transfer CloseOut Adding Page.click_Save_btn
+    Wait Until Element Is Visible    xpath=.//div[text()='Overlapped period is not allowed.']
+    Transfer CloseOut Adding Page.click_Cancel
+
+Delete Close out
+    Transfer CloseOut List.click_delete_CloseOut

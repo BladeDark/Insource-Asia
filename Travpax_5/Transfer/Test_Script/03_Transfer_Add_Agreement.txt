@@ -1,0 +1,181 @@
+*** Settings ***
+Documentation     I want to validation field in transfer agreement adding page
+Suite Setup       Run Keywords    Abstract Page.Begin_Web_Test    Login Page.Login_successfully    Home Page.Click_Products_Link    Home Page.Click_Transfer_Link    Transfer List Page.search_transfer_and_edit    Transfer Menu.click_Agreement
+...               Transfer Agreement List.click_Add_Button
+Suite Teardown    Close Browser
+Resource          ../Page Objects/Abstract Page.robot
+Resource          ../Page Objects/Home Page.robot
+Resource          ../Page Objects/Login Page.robot
+Resource          ../Page Objects/Transfer Adding Page.robot
+Resource          ../Page Objects/Transfer List Page.robot
+Resource          ../Resource/Method.robot
+Resource          ../Resource/Variable.robot
+Resource          ../Page Objects/Transfer Agreement List.robot
+Resource          ../Page Objects/Transfer Menu.robot
+Resource          ../Page Objects/Transfer Agreement Page.robot
+
+*** Variables ***
+${Supplier}       id=txtSupplierCode
+${Market}         id=ddlMarket
+${Currency}       id=ddlCurrency
+${Child_Age_1_Min}    id=MinChild1Age
+${Child_Age_1_Max}    id=MaxChild1Age
+${Child_Age_2_Min}    id=MinChild2Age
+${Child_Age_2_Max}    id=MaxChild2Age
+${Free_Luggage}    id=FreeLugguage
+${ExtraLugguageCharge}    id=ExtraLugguageCharge
+${MaximumLugguage}    id=MaximumLugguage
+${Operation_Hours_From}    name=OperationHourFrom
+${Operation_Hours_To}    name=OperationHourTo
+${Service_Charge}    id=ServiceChargeType
+${VAT}            id=VatType
+${Tax_Rate}       id=PKTaxRate
+${Remark_Internal}    xpath=//*[@title='Rich Text Editor, RemarkInternalAgg']
+${Remark_External}    xpath=//*[@title='Rich Text Editor, RemarkExternalAgg']
+
+*** Test Cases ***
+Back To Transfer Fare List
+    Transfer Agreement Page.click_Back_To_TransferFare_List
+    Transfer Agreement List.click_Add_Button
+
+Cancel button
+    Transfer Agreement Page.click_Cancel_btn
+    Transfer Agreement List.click_Add_Button
+
+Supplier
+    Any field do nothing and have error    id=txtSupplierCode-error    This field is required.    id=btnSaveAgreement
+    Scroll Page To Location    0    -2000
+    Select Supplier    id=btnSearchSupplier    ${Supplier}
+
+Cost Method
+    Any field do nothing and have error    xpath=.//*[@id='costmethoderrmsg']/span/span    This field is required.    id=btnSaveAgreement
+    Scroll Page To Location    0    -2000
+    Transfer Agreement Page.click_PerPax
+
+Market
+    Any field do nothing and have error    id=ddlMarket-error    This field is required.    id=btnSaveAgreement
+    Drop down select value by label    ${Market}    All Market
+
+Currency
+    Any field do nothing and have error    id=ddlCurrency-error    This field is required.    id=btnSaveAgreement
+    Drop down select value by value    ${Currency}    THB
+
+Agent
+    Scroll Page To Location    0    -2000
+    Comment    Select agent for agent field    ${variable_specificAgent}
+
+Min Child Age 1
+    Text field default value    ${Child_Age_1_Min}    2
+    Text field is not able to type english    ${Child_Age_1_Min}
+    Text field is not able to type special character    ${Child_Age_1_Min}
+    Text field fill nothing and show error    ${Child_Age_1_Min}    xpath=.//*[@id='childage1Min']/span/span    This field is required.    id=btnSaveAgreement
+    Fill more than Max Child Age 1
+    Textfield is able to fill valid    ${Child_Age_1_Min}    4
+
+Max Child Age 1
+    Text field default value    ${Child_Age_1_Max}    5
+    Text field is not able to type english    ${Child_Age_1_Max}
+    Text field is not able to type special character    ${Child_Age_1_Max}
+    Text field fill nothing and show error    ${Child_Age_1_Max}    xpath=.//*[@id='childage1Max']/span/span    This field is required.    id=btnSaveAgreement
+    Textfield is able to fill valid    ${Child_Age_1_Max}    7
+
+Min Child Age 2
+    Text field default value    ${Child_Age_2_Min}    8
+
+Max Child Age 2
+    Text field default value    ${Child_Age_2_Max}    12
+    Text field is not able to type english    ${Child_Age_2_Max}
+    Text field is not able to type special character    ${Child_Age_2_Max}
+    Text field fill nothing and show error    ${Child_Age_2_Max}    xpath=.//*[@id='childage2Max']/span/span    This field is required.    id=btnSaveAgreement
+    Textfield is able to fill valid    ${Child_Age_2_Max}    13
+
+Free Luggage
+    Text field is not able to type english    ${Free_Luggage}
+    Text field is not able to type special character    ${Free_Luggage}
+    Text field fill nothing and show error    ${Free_Luggage}    xpath=.//*[@id='lugguageFree']/span/span    This field is required.    id=btnSaveAgreement
+    Textfield is able to fill valid    ${Free_Luggage}    100
+
+Extra Lugguage Charge
+    Text field is not able to type english    ${ExtraLugguageCharge}
+    Text field is not able to type special character    ${ExtraLugguageCharge}
+    Text field fill nothing and show error    ${ExtraLugguageCharge}    xpath=.//*[@id='lugguageChargeExtra']/span/span    This field is required.    id=btnSaveAgreement
+    Text field check decimal number must not more than expected    ${ExtraLugguageCharge}    200.4567
+    Textfield is able to fill valid    ${ExtraLugguageCharge}    200
+
+Maximum Luggage
+    Text field is not able to type english    ${MaximumLugguage}
+    Text field is not able to type special character    ${MaximumLugguage}
+    Text field fill nothing and show error    ${MaximumLugguage}    xpath=.//*[@id='lugguageMaximum']/span/span    This field is required.    id=btnSaveAgreement
+    Textfield is able to fill valid    ${MaximumLugguage}    300
+
+OperationHourFrom
+    Text field default value    ${Operation_Hours_From}    0:00
+
+OperationHourTo
+    Text field default value    ${Operation_Hours_To}    0:00
+
+Not Sell Out of Operating Hour
+    Check box default value is unchecked    id=IsNotSellOutOfOperatingHour
+    Check box tick to be active    xpath=//label[@for='IsNotSellOutOfOperatingHour']/span[3]    id=IsNotSellOutOfOperatingHour
+
+Service Charge
+    Any field do nothing and have error    id=ServiceChargeType-error    This field is required.    id=btnSaveAgreement
+    Drop down select value by index    ${Service_Charge}    1
+    Click Exclude for Service Charge    xpath=.//label[@for='IsServiceChargeInclude-1']/span[3]    IsServiceChargeInclude
+    Click Include For Service Charge    xpath=.//label[@for='IsServiceChargeInclude-0']/span[3]    IsServiceChargeInclude
+
+VAT
+    Any field do nothing and have error    id=VatType-error    This field is required.    id=btnSaveAgreement
+    Drop down select value by index    ${VAT}    1
+    Click Exclude for Service Charge    xpath=.//label[@for='IsVatInclude-1']/span[3]    IsVatInclude
+    Click Include For Service Charge    xpath=.//label[@for='IsVatInclude-0']/span[3]    IsVatInclude
+
+TAX RATE
+    Any field do nothing and have error    id=PKTaxRate-error    This field is required.    id=btnSaveAgreement
+    Drop down select value by index    ${Tax_Rate}    1
+    Click Exclude for Service Charge    xpath=.//label[@for='IsTaxInclude-1']/span[3]    IsTaxInclude
+    Click Include For Service Charge    xpath=.//label[@for='IsTaxInclude-0']/span[3]    IsTaxInclude
+
+Promo Fare
+    Check box default value is unchecked    name=IsPromotion
+    Check box tick to be active    xpath=.//label[@for='IsPromotion']/span[3]    name=IsPromotion
+    Check box tick to be inactive    xpath=.//label[@for='IsPromotion']/span[2]    name=IsPromotion
+
+For Package Only
+    Check box default value is unchecked    name=IsPackageType
+    Check box tick to be active    xpath=.//label[@for='IsPackageType']/span[3]    name=IsPackageType
+    Check box tick to be inactive    xpath=.//label[@for='IsPackageType']/span[2]    name=IsPackageType
+
+SIC Basic
+    Check box default value is unchecked    name=IsSIC
+    Check box tick to be active    xpath=.//label[@for='IsSIC']/span[3]    name=IsSIC
+    Check box tick to be inactive    xpath=.//label[@for='IsSIC']/span[2]    name=IsSIC
+
+Remark Internal
+    Select Frame    ${Remark_Internal}
+    RichText is able to type english    tag=body
+    RichText is able to type number    tag=body
+    RichText is able to type special character    tag=body
+    Unselect Frame
+
+Remark External
+    Select Frame    ${Remark_External}
+    RichText is able to type english    tag=body
+    RichText is able to type number    tag=body
+    RichText is able to type special character    tag=body
+    Unselect Frame
+
+Active
+    Check box default value is checked    name=IsActive
+    Check box tick to be inactive    xpath=.//label[@for='chkIsActive']/span[2]    name=IsActive
+    Check box tick to be active    xpath=.//label[@for='chkIsActive']/span[3]    name=IsActive
+
+Add New Agreement
+    Click Button    id=btnSaveAgreement
+    Wait Until Element Contains    css=div.toast-message    Data successfully saved
+
+*** Keywords ***
+Fill more than Max Child Age 1
+    Input Text    id=MinChild1Age    10
+    Click Button    id=btnSaveAgreement
+    Wait Until Element Contains    css=#childage1 > span.error > span    Max age must be greater than min age

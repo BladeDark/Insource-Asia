@@ -1,0 +1,41 @@
+*** Settings ***
+Documentation     I want to validation field in transfer image page
+Suite Setup       Run Keywords    Abstract Page.Begin_Web_Test    Login Page.Login_successfully    Home Page.Click_Products_Link    Home Page.Click_Transfer_Link    Transfer List Page.search_transfer_and_edit    Transfer Menu.click_Image
+...               Transfer Image Page.click_AddNew_btn
+Suite Teardown    Close Browser
+Resource          ../Page Objects/Abstract Page.robot
+Resource          ../Page Objects/Home Page.robot
+Resource          ../Page Objects/Login Page.robot
+Resource          ../Page Objects/Transfer Adding Page.robot
+Resource          ../Page Objects/Transfer List Page.robot
+Resource          ../Resource/Method.robot
+Resource          ../Resource/Variable.robot
+Resource          ../Page Objects/Transfer Agreement List.robot
+Resource          ../Page Objects/Transfer Menu.robot
+Resource          ../Page Objects/Transfer Agreement Page.robot
+Resource          ../Page Objects/Transfer Image Page.robot
+
+*** Variables ***
+${Image_Name}     id=titleImage
+
+*** Test Cases ***
+Image name
+    Text field fill nothing and show error    ${Image_Name}    xpath=(//label[@name='lblRequired'])[2]    This field is required    xpath=.//button[text()='Save']
+    Text field is able to type english    ${Image_Name}
+    Text field is able to type number    ${Image_Name}
+    Text field is able to type special character    ${Image_Name}
+    Text field is able to fill valid    ${Image_Name}    handsome
+
+image
+    Any field do nothing and have error    xpath=(//label[@name='lblRequired'])[1]    This field is required    xpath=.//button[text()='Save']
+    Choose File    id=Photo    ${variable_imagePath}
+
+Add new image
+    Click Button    xpath=.//button[text()='Save']
+    Wait Until Element Is Visible    xpath=.//div[text()='Data saved successfully.']
+
+Delete Image
+    Wait Until Keyword Succeeds    20    1    Click Element    css=.btn.default.btdelete.roledelete
+    Wait Until Element Is Visible    css=.btn.btn-primary
+    Click Element    css=.btn.btn-primary
+    Wait Until Element Is Visible    xpath=.//div[text()='Data deleted successfully.']

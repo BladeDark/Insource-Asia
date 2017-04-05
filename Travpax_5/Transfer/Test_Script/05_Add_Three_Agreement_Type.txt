@@ -1,0 +1,71 @@
+*** Settings ***
+Documentation     I want to validation field in transfer image page
+Suite Setup       Run Keywords    Abstract Page.Begin_Web_Test    Login Page.Login_successfully    Home Page.Click_Products_Link    Home Page.Click_Transfer_Link    Transfer List Page.search_transfer_and_edit    Transfer Menu.click_Agreement
+Suite Teardown    Close Browser
+Resource          ../Page Objects/Abstract Page.robot
+Resource          ../Page Objects/Home Page.robot
+Resource          ../Page Objects/Login Page.robot
+Resource          ../Page Objects/Transfer Adding Page.robot
+Resource          ../Page Objects/Transfer List Page.robot
+Resource          ../Resource/Method.robot
+Resource          ../Resource/Variable.robot
+Resource          ../Page Objects/Transfer Agreement List.robot
+Resource          ../Page Objects/Transfer Menu.robot
+Resource          ../Page Objects/Transfer Agreement Page.robot
+Resource          ../Page Objects/Transfer Image Page.robot
+
+*** Variables ***
+${Supplier}       id=txtSupplierCode
+${Market}         id=ddlMarket
+${Currency}       id=ddlCurrency
+${Child_Age_1_Min}    id=MinChild1Age
+${Child_Age_1_Max}    id=MaxChild1Age
+${Child_Age_2_Min}    id=MinChild2Age
+${Child_Age_2_Max}    id=MaxChild2Age
+${Free_Luggage}    id=FreeLugguage
+${ExtraLugguageCharge}    id=ExtraLugguageCharge
+${MaximumLugguage}    id=MaximumLugguage
+${Operation_Hours_From}    name=OperationHourFrom
+${Operation_Hours_To}    name=OperationHourTo
+${Service_Charge}    id=ServiceChargeType
+${VAT}            id=VatType
+${Tax_Rate}       id=PKTaxRate
+${Remark_Internal}    xpath=//*[@title='Rich Text Editor, RemarkInternalAgg']
+${Remark_External}    xpath=//*[@title='Rich Text Editor, RemarkExternalAgg']
+
+*** Test Cases ***
+Add_Pax_Combination
+    Transfer Agreement List.click_Add_Button
+    Select Supplier    id=btnSearchSupplier    ${Supplier}
+    Transfer Agreement Page.click_PerPax
+    Drop down select value by label    ${Market}    All Market
+    Drop down select value by value    ${Currency}    THB
+    Drop down select value by index    ${Service_Charge}    1
+    Drop down select value by index    ${VAT}    1
+    Drop down select value by index    ${Tax_Rate}    1
+    Click Button    id=btnSaveAgreement
+    Wait Until Element Contains    css=div.toast-message    Data successfully saved
+
+Add_Cost_Component
+    Transfer Agreement List.click_Add_Button
+    Select Supplier    id=btnSearchSupplier    ${Supplier}
+    Transfer Agreement Page.click_CostComponent
+    Drop down select value by label    ${Market}    All Market
+    Drop down select value by value    ${Currency}    THB
+    Drop down select value by index    ${Service_Charge}    1
+    Drop down select value by index    ${VAT}    1
+    Drop down select value by index    ${Tax_Rate}    1
+    Click Button    id=btnSaveAgreement
+    Wait Until Element Contains    css=div.toast-message    Data successfully saved
+
+Add_Vehicle
+    Transfer Agreement List.click_Add_Button
+    Select Supplier    id=btnSearchSupplier    ${Supplier}
+    Transfer Agreement Page.click_PerVehicle
+    Drop down select value by label    ${Market}    All Market
+    Drop down select value by value    ${Currency}    THB
+    Drop down select value by index    ${Service_Charge}    1
+    Drop down select value by index    ${VAT}    1
+    Drop down select value by index    ${Tax_Rate}    1
+    Click Button    id=btnSaveAgreement
+    Wait Until Element Contains    css=div.toast-message    Data successfully saved

@@ -1,0 +1,87 @@
+*** Settings ***
+Documentation     I want to validation field in Allotment Page
+Suite Setup       Run Keywords    Abstract Page.Begin_Web_Test    Login Page.Login_successfully    Home Page.Click_Products_Link    Home Page.Click_Transfer_Link    Transfer List Page.search_transfer_and_edit    Transfer Menu.click_Agreement
+Suite Teardown    Close Browser
+Resource          ../Page Objects/Abstract Page.robot
+Resource          ../Page Objects/Home Page.robot
+Resource          ../Page Objects/Login Page.robot
+Resource          ../Page Objects/Transfer Adding Page.robot
+Resource          ../Page Objects/Transfer List Page.robot
+Resource          ../Resource/Method.robot
+Resource          ../Resource/Variable.robot
+Resource          ../Page Objects/Transfer Agreement List.robot
+Resource          ../Page Objects/Transfer Menu.robot
+Resource          ../Page Objects/Transfer Agreement Page.robot
+Resource          ../Page Objects/Transfer Allotment List.robot
+Resource          ../Page Objects/Transfer Allotment Page.robot
+Resource          ../Page Objects/Transfer Agreement Menu.robot
+
+*** Test Cases ***
+Add Pax Combination Allotment
+    Transfer Agreement List.click_edit_PaxCombination_Agreement
+    Transfer Agreement Menu.click_Allotment_Tab
+    Transfer Allotment List.click_AddNew_btn
+    Transfer Allotment Page.set_Inventory    20
+    Transfer Allotment Page.set_CutOff    10
+    Transfer Allotment Page.select_ValidFrom
+    Transfer Allotment Page.select_ValidTo
+    Transfer Allotment Page.click_Add_btn
+    Wait Until Element Is Visible    xpath=.//div[text()='Data saved successfully.']
+    Wait Until Element Contains    xpath=//table[@id='sample_editable_allotment']/tbody/tr[1]/td[6]/span    20
+
+Edit Pax Combination Allotment
+    Transfer Allotment List.click_Edit_Allotment
+    Transfer Allotment Page.set_Inventory    50
+    Transfer Allotment Page.click_Edit_btn
+    Wait Until Keyword Succeeds    10    1    Wait Until Element Contains    xpath=//table[@id='sample_editable_allotment']/tbody/tr[1]/td[6]/span    50
+
+Delete Pax Combination Allotment
+    Transfer Allotment List.click_delete_Allotment
+
+Add Cost Component Allotment
+    Transfer Menu.click_Agreement
+    Transfer Agreement List.click_edit_CostComponent_Agreement
+    Sleep    2
+    Scroll Page To Location    0    -2000
+    Transfer Agreement Menu.click_Allotment_Tab
+    Transfer Allotment List.click_AddNew_btn
+    Transfer Allotment Page.set_Inventory    20
+    Transfer Allotment Page.set_CutOff    10
+    Transfer Allotment Page.select_ValidFrom
+    Transfer Allotment Page.select_ValidTo
+    Transfer Allotment Page.click_Add_btn
+    Wait Until Element Is Visible    xpath=.//div[text()='Data saved successfully.']
+    Wait Until Element Contains    xpath=//table[@id='sample_editable_allotment']/tbody/tr[1]/td[6]/span    20
+
+Edit Cost Component Allotment
+    Transfer Allotment List.click_Edit_Allotment
+    Transfer Allotment Page.set_Inventory    50
+    Transfer Allotment Page.click_Edit_btn
+    Wait Until Keyword Succeeds    10    1    Wait Until Element Contains    xpath=//table[@id='sample_editable_allotment']/tbody/tr[1]/td[6]/span    50
+
+Delete Cost Component Allotment
+    Transfer Allotment List.click_delete_Allotment
+
+Add Vehicle Allotment
+    Transfer Menu.click_Agreement
+    Transfer Agreement List.click_edit_Vehicle_Agreement
+    Sleep    2
+    Scroll Page To Location    0    -2000
+    Transfer Agreement Menu.click_Allotment_Tab
+    Transfer Allotment List.click_AddNew_btn
+    Transfer Allotment Page.set_Inventory    20
+    Transfer Allotment Page.set_CutOff    10
+    Transfer Allotment Page.select_ValidFrom
+    Transfer Allotment Page.select_ValidTo
+    Transfer Allotment Page.click_Add_btn
+    Wait Until Element Is Visible    xpath=.//div[text()='Data saved successfully.']
+    Wait Until Element Contains    xpath=//table[@id='sample_editable_allotment']/tbody/tr[1]/td[6]/span    20
+
+Edit Vehicle Allotment
+    Transfer Allotment List.click_Edit_Allotment
+    Transfer Allotment Page.set_Inventory    50
+    Transfer Allotment Page.click_Edit_btn
+    Wait Until Keyword Succeeds    10    1    Wait Until Element Contains    xpath=//table[@id='sample_editable_allotment']/tbody/tr[1]/td[6]/span    50
+
+Delete Vehicle Allotment
+    Transfer Allotment List.click_delete_Allotment

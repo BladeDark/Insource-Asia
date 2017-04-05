@@ -1,0 +1,138 @@
+*** Settings ***
+Documentation     I want to validation field in Markup Page
+Suite Setup       Run Keywords    Abstract Page.Begin_Web_Test    Login Page.Login_successfully    Home Page.Click_Products_Link    Home Page.Click_Transfer_Link    Transfer List Page.search_transfer_and_edit    Transfer Menu.click_Agreement
+Suite Teardown    Close Browser
+Resource          ../Page Objects/Abstract Page.robot
+Resource          ../Page Objects/Home Page.robot
+Resource          ../Page Objects/Login Page.robot
+Resource          ../Page Objects/Transfer Adding Page.robot
+Resource          ../Page Objects/Transfer List Page.robot
+Resource          ../Resource/Method.robot
+Resource          ../Resource/Variable.robot
+Resource          ../Page Objects/Transfer Agreement List.robot
+Resource          ../Page Objects/Transfer Menu.robot
+Resource          ../Page Objects/Transfer Agreement Page.robot
+Resource          ../Page Objects/Transfer Agreement Menu.robot
+Resource          ../Page Objects/Transfer Markup List.robot
+Resource          ../Page Objects/Transfer Markup Page.robot
+
+*** Test Cases ***
+Add Pax Combination Markup
+    Transfer Agreement List.click_edit_PaxCombination_Agreement
+    Transfer Agreement Menu.click_Markup_Tab
+    Transfer Markup List.click_AddNew_btn
+    Sleep    2
+    Transfer Markup Page.Select_DateFrom
+    Transfer Markup Page.Select_DateTo
+    Transfer Markup Page.select_Type_Adult    %
+    Transfer Markup Page.set_Rate_Adult    10
+    Transfer Markup Page.select_Type_Child1    %
+    Transfer Markup Page.set_Rate_Child1    20
+    Transfer Markup Page.select_Type_Child2    %
+    Transfer Markup Page.set_Rate_Child2    30
+    Transfer Markup Page.select_Type_Infant    %
+    Transfer Markup Page.set_Rate_Infant    40
+    Transfer Markup Page.select_Type_Luggage    %
+    Transfer Markup Page.set_Rate_Luggage    50
+    Transfer Markup Page.click_Add_btn
+    Transfer Markup List.click_Show_Hide_Column
+    Transfer Markup List.click_ToShow_Child1_Column
+    Transfer Markup List.click_ToShow_Child2_Column
+    Transfer Markup List.click_Show_Hide_Column
+    Transfer Markup List.check_Adult_Rate    10.00 %
+    Transfer Markup List.check_Child1_Rate    20.00 %
+    Transfer Markup List.check_Child2_Rate    30.00 %
+    Transfer Markup List.check_Infant_Rate    40.00 %
+
+Edit Pax Combination Markup
+    Transfer Markup List.click_Edit_btn
+    Transfer Markup Page.select_Type_Child2    Amount
+    Transfer Markup Page.select_Type_Infant    Amount
+    Transfer Markup Page.click_Save_btn
+    Transfer Markup List.click_Show_Hide_Column
+    Transfer Markup List.click_ToShow_Child1_Column
+    Transfer Markup List.click_ToShow_Child2_Column
+    Transfer Markup List.click_Show_Hide_Column
+    Transfer Markup List.check_Adult_Rate    10.00 %
+    Transfer Markup List.check_Child1_Rate    20.00 %
+    Transfer Markup List.check_Child2_Rate    30.00 THB
+    Transfer Markup List.check_Infant_Rate    40.00 THB
+
+Delete Pax Combination Markup
+    Transfer Markup List.click_Delete_btn
+
+Add Cost Component Markup
+    Transfer Menu.click_Agreement
+    Transfer Agreement List.click_edit_CostComponent_Agreement
+    Sleep    2
+    Scroll Page To Location    0    -2000
+    Transfer Agreement Menu.click_Markup_Tab
+    Transfer Markup List.click_AddNew_btn
+    Sleep    2
+    Transfer Markup Page.Select_DateFrom
+    Transfer Markup Page.Select_DateTo
+    Transfer Markup Page.select_Type_Adult    %
+    Transfer Markup Page.set_Rate_Adult    10
+    Transfer Markup Page.select_Type_Child1    %
+    Transfer Markup Page.set_Rate_Child1    20
+    Transfer Markup Page.select_Type_Child2    %
+    Transfer Markup Page.set_Rate_Child2    30
+    Transfer Markup Page.select_Type_Infant    %
+    Transfer Markup Page.set_Rate_Infant    40
+    Transfer Markup Page.select_Type_Luggage    %
+    Transfer Markup Page.set_Rate_Luggage    50
+    Transfer Markup Page.click_Add_btn
+    Transfer Markup List.click_Show_Hide_Column
+    Transfer Markup List.click_ToShow_Child1_Column
+    Transfer Markup List.click_ToShow_Child2_Column
+    Transfer Markup List.click_Show_Hide_Column
+    Transfer Markup List.check_Adult_Rate    10.00 %
+    Transfer Markup List.check_Child1_Rate    20.00 %
+    Transfer Markup List.check_Child2_Rate    30.00 %
+    Transfer Markup List.check_Infant_Rate    40.00 %
+
+Edit Cost Component Markup
+    Transfer Markup List.click_Edit_btn
+    Transfer Markup Page.select_Type_Child2    Amount
+    Transfer Markup Page.select_Type_Infant    Amount
+    Transfer Markup Page.click_Save_btn
+    Transfer Markup List.click_Show_Hide_Column
+    Transfer Markup List.click_ToShow_Child1_Column
+    Transfer Markup List.click_ToShow_Child2_Column
+    Transfer Markup List.click_Show_Hide_Column
+    Transfer Markup List.check_Adult_Rate    10.00 %
+    Transfer Markup List.check_Child1_Rate    20.00 %
+    Transfer Markup List.check_Child2_Rate    30.00 THB
+    Transfer Markup List.check_Infant_Rate    40.00 THB
+
+Delete Cost Component Markup
+    Transfer Markup List.click_Delete_btn
+
+Add Vehicle Markup
+    Transfer Menu.click_Agreement
+    Transfer Agreement List.click_edit_Vehicle_Agreement
+    Sleep    2
+    Scroll Page To Location    0    -2000
+    Transfer Agreement Menu.click_Markup_Tab
+    Transfer Markup List.click_AddNew_btn
+    Sleep    2
+    Transfer Markup Page.Select_DateFrom
+    Transfer Markup Page.Select_DateTo
+    Transfer Markup Page.select_Type_Adult    %
+    Transfer Markup Page.set_Rate_Adult    10
+    Transfer Markup Page.select_Type_Luggage    %
+    Transfer Markup Page.set_Rate_Luggage    20
+    Transfer Markup Page.click_Add_btn
+    Transfer Markup List.check_Adult_Rate    10.00 %
+
+Edit Vehicle Markup
+    Transfer Markup List.click_Edit_btn
+    Sleep    2
+    Transfer Markup Page.select_Type_Adult    Amount
+    Transfer Markup Page.click_Save_btn
+    Transfer Markup List.click_Show_Hide_Column
+    Transfer Markup List.click_Show_Hide_Column
+    Transfer Markup List.check_Adult_Rate    10.00 THB
+
+Delete Vehicle Markup
+    Transfer Markup List.click_Delete_btn

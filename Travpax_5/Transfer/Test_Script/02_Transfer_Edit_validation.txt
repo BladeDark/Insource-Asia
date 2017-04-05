@@ -1,0 +1,99 @@
+*** Settings ***
+Documentation     I want to validation field in transfer editing page
+Suite Setup       Run Keywords    Abstract Page.Begin_Web_Test    Login Page.Login_successfully    Home Page.Click_Products_Link    Home Page.Click_Transfer_Link    Transfer List Page.search_transfer_and_edit
+Suite Teardown    Close Browser
+Resource          ../Page Objects/Abstract Page.robot
+Resource          ../Page Objects/Home Page.robot
+Resource          ../Page Objects/Login Page.robot
+Resource          ../Page Objects/Transfer Adding Page.robot
+Resource          ../Page Objects/Transfer List Page.robot
+Resource          ../Resource/Method.robot
+Resource          ../Resource/Variable.robot
+
+*** Variables ***
+${Transfer_Name}    name=TransferName
+${Transfer_Code}    name=TransferCode
+${Transfer_Type}    id=ddlTransType
+${Content_Language}    id=ddlLangCode
+${Short_Description_en}    xpath=//*[@title='Rich Text Editor, shortDescription-en_US']
+${Full_Description_en}    xpath=//*[@title='Rich Text Editor, Desc-en_US']
+${From_Country}    id=ddlCountry
+${From_City}      id=ddlCity
+${To_Country}     id=ddlToCountry
+${To_City}        id=ddlToCity
+${Booking_Lead_Time}    id=BookingLeadTime
+${Remark_Internal_en}    xpath=//*[@title='Rich Text Editor, internalRemark-en_US']
+${Remark_External_en}    xpath=//*[@title='Rich Text Editor, externalRemark-en_US']
+${btnSave}        id=btnSave
+
+*** Test Cases ***
+Transfer Name
+    Text field fill nothing and show error    ${Transfer_Name}    id=TransferName-error    This field is required.    ${btnSave}
+    Text field is able to type english    ${Transfer_Name}
+    Text field is able to type number    ${Transfer_Name}
+    Text field is able to type special character    ${Transfer_Name}
+    Text field fill less than 10 and show error    ${Transfer_Name}    id=TransferName-error    Please enter at least 10 characters.
+    Textfield is able to fill valid    ${Transfer_Name}    ${variable_TransferName}
+
+Transfer Code
+    Text field is able to type english    ${Transfer_Code}
+    Text field is able to type number    ${Transfer_Code}
+    Text field is able to type special character    ${Transfer_Code}
+    Text field is able to fill valid    ${Transfer_Code}    ${variable_transferCode}
+
+Transfer Type
+    Drop down check length    ${Transfer_Type}    2
+    Drop down select value by label    ${Transfer_Type}    Round Trip
+
+Content Language
+    Drop down check length    ${Content_Language}    10
+    Drop down select value by label    ${Content_Language}    English
+
+Short Description
+    Select Frame    ${Short_Description_en}
+    RichText is able to type english    tag=body
+    RichText is able to type number    tag=body
+    RichText is able to type special character    tag=body
+    Unselect Frame
+
+Full Description
+    Select Frame    ${Full_Description_en}
+    RichText is able to type english    tag=body
+    RichText is able to type number    tag=body
+    RichText is able to type special character    tag=body
+    Unselect Frame
+
+From Country
+    Drop down select value by label    ${From_Country}    Thailand
+
+From City
+    Wait Until Keyword Succeeds    20    1    Drop down select value by label    ${From_City}    Bangkok
+
+To Country
+    Drop down select value by label    ${To_Country}    Thailand
+
+To City
+    Wait Until Keyword Succeeds    20    1    Drop down select value by label    ${To_City}    Bangkok
+
+Booking lead time
+    Text field is not able to type english    ${Booking_Lead_Time}
+    Text field is not able to type special character    ${Booking_Lead_Time}
+    Textfield is able to fill valid    ${Booking_Lead_Time}    10
+
+Remark Internal
+    Select Frame    ${Remark_Internal_en}
+    RichText is able to type english    tag=body
+    RichText is able to type number    tag=body
+    RichText is able to type special character    tag=body
+    Unselect Frame
+
+Remark External
+    Select Frame    ${Remark_External_en}
+    RichText is able to type english    tag=body
+    RichText is able to type number    tag=body
+    RichText is able to type special character    tag=body
+    Unselect Frame
+
+Edit transfer
+    Click Button    ${btnSave}
+    Wait Until Element Is Visible    id=aimage
